@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+ 
+<script src='js/d3.v3.min.js' type='text/javascript'></script>
+<script src='js/crossfilter.v1.min.js' type='text/javascript'></script>
+<script src='js/dc.js' type='text/javascript'></script>
+<script src='js/jquery-1.10.1.min.js' type='text/javascript'></script>
+<script src='js/bootstrap.min.js' type='text/javascript'></script>
+
+<link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+<link href='css/dc.css' rel='stylesheet' type='text/css'>
+<style>
+	.dc-chart .area.stack0, .dc-chart .bar.stack0 {
+	    fill: url(#yellowGradient);
+	    fill-opacity: 1;
+	    stroke: none;
+	}
+	.stack0 path.line {
+	    stroke: #E88442 !important;
+	    stroke-width: 3px !important;
+	}
+	.dc-chart g.stack1 path.area, .dc-chart rect.bar.stack1 {
+	    fill: url(#redGradient);
+	    fill-opacity: 1;
+	    stroke: none;
+	}
+	.line.stack1 {
+	    stroke: #933 !important;
+	    stroke-width: 3px !important;
+	}
+	.stripe0 {
+		fill: url(#stripe0gradient);
+		fill-opacity: 1;
+		stroke: none;
+	}
+	.stripe1 {
+		fill: url(#stripe1gradient);
+		fill-opacity: 1;
+		stroke: none;
+	}
+
+</style> 
+
+</head>
+<body>
+<svg width="70" height="70">
+<defs>
+	<pattern id="cla_green" width="14" height="14" patternUnits="userSpaceOnUse">
+		<g transform='scale(0.2)'>
+			<rect width='70' height='70' fill='#bbd817'/>
+			<g transform='rotate(45)'>
+				<rect width='99' height='25' fill='#a9ce00'/>
+				<rect y='-50' width='99' height='25' fill='#a9ce00'/>
+			</g>
+		</g>
+	</pattern>
+	<pattern id="cla_blue" width="12" height="12" patternUnits="userSpaceOnUse">
+		<g transform='scale(0.4)'>
+			<rect width='30' height='30' fill='#00a9f1'/>
+			<rect width='30' height='15' fill='#26baf4'/>
+		</g>
+	</pattern>
+    <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="yellowGradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="#F1B84C" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#E88442" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="yellowInvertedGradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="#E88442" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#F1B84C" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="redGradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="#DC5E48" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#E23639" stop-opacity="1"/>
+    </linearGradient>
+
+    <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="stripe0gradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="#EFEFEF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#CBCDCC" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="stripe1gradient" spreadMethod="pad">
+      <stop offset="0%" stop-color="#DDDFDE" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#B3B6B5" stop-opacity="1"/>
+    </linearGradient>
+
+</defs>
+
+</svg
+	<div>
+	    <a href="javascript:dc.renderAll();">Render All</a>
+	    <a href="javascript:dc.filterAll(); dc.renderAll();">Filter All</a>
+	</div>
+
+
+<div id="dateBar" class="chart">
+    <h3>y = forms(date)</h3>
+<span class="reset" style="display: none;">Current filter: <span class="filter"></span>    <a class="reset" href="javascript:dateBar.filterAll();dc.redrawAll();" style="display: none;">reset</a></span>
+    <div class="clear"></div>
+</div>
+
+<div id="hourBar" class="chart">
+    <h3>y = forms(hour)</h3>
+<span class="reset" style="display: none;">Current filter: <span class="filter"></span>    <a class="reset" href="javascript:hourBar.filterAll();dc.redrawAll();" style="display: none;">reset</a></span>
+    <div class="clear"></div>
+</div>
+
+<div id="formPie" class="chart">
+    <h3>Forms distribution</h3>
+	<span class="reset" style="display: none;">Current filter: <span class="filter"></span>    <a class="reset" href="javascript:formPie.filterAll();dc.redrawAll();" style="display: none;">reset</a></span>
+	    <div class="clear"></div>
+	</div>
+
+	<div id="authPie" class="chart">
+	    <h3>Authentication trend</h3>
+		<span class="reset" style="display: none;">Current filter: <span class="filter"></span>    <a class="reset" href="javascript:authPie.filterAll();dc.redrawAll();" style="display: none;">reset</a></span>
+		    <div class="clear"></div>
+		</div>
+
+
+
+<!-- <script src='javascripts/simple_vis2.js' type='text/javascript'></script> -->
+<script>
+
+var dateBar, hourBar, formPie;
+var IKP_auth;
+var dateDim, dateGroup;
+// HISTOGRAM
+d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
+	var cf = crossfilter(rawson);
+	dateDim = cf.dimension(function (d) {
+		return new Date(d.timestamp);
+	});
+
+	dateGroup = dateDim
+		.group(function (d) {return d3.time.day(d);})
+		.reduce(
+		function (p,v) {
+			if (v.channel == "Kontor") p.kontor++;
+			if (v.channel == "Telefonbanken") p.telefonbanken++;
+			if (typeof p.formid[v.formid] === "undefined") p.formid[v.formid] = 1;
+			else p.formid[v.formid]++;
+			return p;
+		},
+		function (p,v) {
+			if (v.channel == "Kontor") p.kontor--;
+			if (v.channel == "Telefonbanken") p.telefonbanken--;
+			if (typeof p.formid[v.formid] != "undefined") p.formid[v.formid]--;
+			if (p.formid[v.formid].length == 0) p.formid[v.formid]--;
+			return p;
+		},
+		function (p,v) {
+			return {
+				kontor: 0,
+				telefonbanken: 0,
+				formid: []
+			};
+		}
+		
+	);
+
+	dateBar = dc.compositeChart("#dateBar");
+	dateBar
+		.width(900)
+		.height(300)
+		.dimension(dateDim)
+		.group(dateGroup)
+		.x(d3.time.scale().domain(d3.extent(rawson, function (d) {return new Date(d.timestamp)})))
+		.round(d3.time.days.round)
+		.xUnits(d3.time.days)
+		.elasticY(true)
+		.y(d3.scale.linear())
+		.brushOn(false)
+		.renderVerticalGridLines(true)
+		.compose([
+			dc.lineChart(dateBar)
+				.valueAccessor(function (d) {return d.value.kontor;})
+				.renderArea(true)
+				.stack(dateGroup, function (d) { return d.value.telefonbanken;})
+		])
+		.xAxis()
+			.tickFormat(function (x) { return x.getDate() + "/" + (x.getMonth()+1);})
+			.ticks(d3.time.days); /* cla - every day - change later */
+		;
+
+	    var hour = cf.dimension(function(d) {
+	        var n = new Date(d.timestamp);        
+	        return n.getHours(); 
+	    });
+	    var hours = hour.group();
+
+		hourBar = dc.barChart("#hourBar");
+		hourBar
+	    	.width(300)
+	    	.height(180)
+			.dimension(hour)
+	    	.group(hours)
+		    .x(d3.scale.linear()
+		        .domain([0, 23])
+		        .rangeRound([0, 10 * 23])
+		        )
+		    ;
+
+
+		dc.renderAll();
+		
+		// chart stripe background
+		var gridroot = d3.select("#dateBar").select(".grid-line.vertical").selectAll("line");
+		var x1 = gridroot[0][0].getAttribute("x1");
+		var x2 = gridroot[0][1].getAttribute("x1");
+		var w = x2-x1; // width of each bar
+
+		var h = d3.select("#dateBar").select("svg").attr("height"); // height of each bar
+
+		// lupe through verticals
+		while (gridroot[0].length>1 && (g = d3.select(gridroot[0].pop()))) {
+		d3.select("#dateBar").select(".grid-line.vertical").insert("rect", /* before */ "line")
+			.attr("x", g.attr("x1")-w)
+			.attr("y", 0)
+			.attr("width", w)
+			.attr("height", "260")
+			.attr("class", "stripe"+gridroot[0].length%2);
+		}
+		// done styling chart background
+//d3.select("#dateBar").appendChild(d3.select("#dateBar").select(".axis"));
+
+});
+
+
+</script>
+
+
+<div class="clear"></div>
+
+
+
+
+
+</body>
+</html>

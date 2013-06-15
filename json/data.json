@@ -1,0 +1,726 @@
+[
+	{
+		"timestamp": "2013-06-01T10:24:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Älvsjö",
+		"clerk_id": "S35000",
+		"clerk_name": "Lotta Bjarnevi",
+		"totPages": 14,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": false,
+				"Swish_limit": 900
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-01T14:04:24.729Z",
+		"formid": "A1116",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27
+	},
+	{
+		"timestamp": "2013-06-01T14:34:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-01T17:04:24.729Z",
+		"formid": "A1114",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27
+	},
+	{
+		"timestamp": "2013-06-02T14:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-02T15:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-02T19:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-03T09:04:24.729Z",
+		"formid": "A7594",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Per Lomaeus",
+		"totPages": 27
+	},
+	{
+		"timestamp": "2013-06-03T17:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+		"timestamp": "2013-06-04T14:34:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-04T17:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-04T14:04:24.729Z",
+		"formid": "A7594",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27
+	},
+	{
+		"timestamp": "2013-06-05T15:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-05T19:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-05T09:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Per Lomaeus",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-06T17:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Digipass": false,
+				"BankID": false,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+
+
+
+
+
+
+
+
+
+
+
+	{
+		"timestamp": "2013-06-06T14:34:24.729Z",
+		"formid": "A1116",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27
+	},
+	{
+		"timestamp": "2013-06-07T17:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-08T14:04:24.729Z",
+		"formid": "A1116",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27
+	},
+	{
+		"timestamp": "2013-06-08T15:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-08T19:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-08T09:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Per Lomaeus",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Notariatkonto",
+			"card_type": "VISA",
+			"services": {
+				"IKP": false,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-09T17:04:24.729Z",
+		"formid": "A6419",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27
+	},	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+		"timestamp": "2013-06-10T14:34:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-11T17:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-11T14:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-12T15:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-12T19:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Digipass": false,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-13T09:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Per Lomaeus",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Notariatkonto",
+			"card_type": "VISA",
+			"services": {
+				"IKP": false,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-14T17:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Sälj",
+			"funds": ["Baltic Luck", "Afrika råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	
+	{
+		"timestamp": "2013-06-15T13:34:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Kop",
+			"funds": ["Baltic Luck", "Afrika ravaruindex", "Afrika tillvaxt"]
+		}
+	},
+	
+	
+	
+	{
+		"timestamp": "2013-06-15T14:34:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": true,
+				"Swish": true,
+				"Swish_limit": 3200
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-16T17:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Baltic Luck", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-16T14:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Christian Lagerkvist",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Digipass": true,
+				"BankID": false
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-16T15:04:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Digipass": false,
+				"BankID": false
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-16T19:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Usa Tillväxt Alfa", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-16T09:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Kontor",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Per Lomaeus",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Sälj",
+			"funds": ["US Hedge Mini", "Afrika råvaruindex", "Asien tillväxt"]
+		}
+	},
+	{
+		"timestamp": "2013-06-16T17:04:24.729Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8381,
+		"site": "Sergels Torg",
+		"clerk_id": "S35000",
+		"clerk_name": "Pierre Törnstand",
+		"totPages": 27,
+		"properties": {
+			"order_type": "Sälj",
+			"funds": ["US Hedge Mini", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	},
+	
+	
+	
+	
+	{
+		"timestamp": "2013-06-17T14:03:24.729Z",
+		"formid": "A7479",
+		"channel": "Kontor",
+		"clearing": 8291,
+		"site": "Uppsala",
+		"clerk_id": "S30582",
+		"clerk_name": "Mats Karlsson",
+		"totPages": 22,
+		"properties": {
+			"account_type": "Notatiatkonto",
+			"card_type": "MasterCard",
+			"services": {
+				"IKP": false,
+				"Swish": true,
+				"Swish_limit": 1000
+			}
+		}
+	},
+	{
+		"timestamp": "2013-06-17T16:02:24.729Z",
+		"formid": "A7479",
+		"channel": "Telefonbanken",
+		"clearing": 8591,
+		"site": "Göteborg",
+		"clerk_id": "S30582",
+		"clerk_name": "Mats Karlsson",
+		"totPages": 12,
+		"properties": {
+			"account_type": "Enkla Sparkontot",
+			"card_type": "VISA",
+			"services": {
+				"IKP": true,
+				"Swish": true,
+				"Swish_limit": 1000
+			}
+		}
+	},
+
+	{
+		"timestamp": "2013-06-18T12:02:14.129Z",
+		"formid": "A6420",
+		"channel": "Telefonbanken",
+		"clearing": 8291,
+		"site": "Uppsala",
+		"clerk_id": "S30582",
+		"clerk_name": "Mats Karlsson",
+		"totPages": 22,
+		"properties": {
+			"order_type": "Köp",
+			"funds": ["Europa Hedge", "Asien råvaruindex", "Afrika tillväxt"]
+		}
+	}
+]
