@@ -1,34 +1,28 @@
-var http = require('http');
-/*
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hej Värld\n');
-}).listen(3000, "127.0.0.1");
-console.log('Server running at http://127.0.0.1:3000/');
-
-*/
 fs = require('fs')
 
-var path = 'SEBmisc.logs/';
-fs.readdir(path, function (err, files) {
+var inpath = 'logs/';
+var outpath = 'json/';
+
+fs.readdir(inpath, function (err, files) {
   if (err) {
     console.log(err);
     return;
   }
 //  forEachFile("SEBmisc.log20130331");
 	for (var i=0; i<files.length;i++) {
-		forEachFile(files[i]);
-			
+		forEachFile(files[i]);			
 		}
 });
 
 function forEachFile(filename) {
-	fs.readFile(path + filename, 'utf8', function (err,data) {
+	fs.readFile(inpath + filename, 'utf8', function (err,data) {
 	  if (err) {
 	    return console.log(err);
 	  }
 	  var JSONstring = lceslog2lcesjson(data);
-	  fs.writeFile(filename + ".json", JSONstring);
+		if (JSONstring.length > 2) {
+			fs.writeFile(outpath+filename + ".json", JSONstring);
+		}
 	});
 }
 

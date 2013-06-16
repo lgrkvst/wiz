@@ -86,7 +86,7 @@
 
 </defs>
 
-</svg
+</svg>
 	<div>
 	    <a href="javascript:dc.renderAll();">Render All</a>
 	    <a href="javascript:dc.filterAll(); dc.renderAll();">Filter All</a>
@@ -119,34 +119,38 @@
 
 
 
-<!-- <script src='javascripts/simple_vis2.js' type='text/javascript'></script> -->
+<!-- <script src='/js/simple_vis2.js' type='text/javascript'></script> -->
 <script>
 
 var dateBar, hourBar, formPie;
 var IKP_auth;
 var dateDim, dateGroup;
+var cf;
+var rawdata;
 // HISTOGRAM
-d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
-	var cf = crossfilter(rawson);
+//d3.json("http://localhost:8888/jsonlab/json/SEBmisc.log20130130.json", function (rawson) {
+d3.json("http://localhost:8888/jsonlab/json/merge_of_logs.json", function (rawson) {
+	rawdata = rawson;
+	cf = crossfilter(rawson);
 	dateDim = cf.dimension(function (d) {
-		return new Date(d.timestamp);
+		return new Date(d.t);
 	});
 
 	dateGroup = dateDim
-		.group(function (d) {return d3.time.day(d);})
+		.group(function (d) {return d3.time.week(d);})
 		.reduce(
 		function (p,v) {
-			if (v.channel == "Kontor") p.kontor++;
-			if (v.channel == "Telefonbanken") p.telefonbanken++;
-			if (typeof p.formid[v.formid] === "undefined") p.formid[v.formid] = 1;
-			else p.formid[v.formid]++;
+			if (v.c == "K") p.kontor++;
+			if (v.c == "T") p.telefonbanken++;
+			if (typeof p.formid[v.f] === "undefined") p.formid[v.f] = 1;
+			else p.formid[v.f]++;
 			return p;
 		},
 		function (p,v) {
-			if (v.channel == "Kontor") p.kontor--;
-			if (v.channel == "Telefonbanken") p.telefonbanken--;
-			if (typeof p.formid[v.formid] != "undefined") p.formid[v.formid]--;
-			if (p.formid[v.formid].length == 0) p.formid[v.formid]--;
+			if (v.channel == "K") p.kontor--;
+			if (v.channel == "T") p.telefonbanken--;
+			if (typeof p.formid[v.f] != "undefined") p.formid[v.f]--;
+			if (p.formid[v.f].length == 0) p.formid[v.f]--;
 			return p;
 		},
 		function (p,v) {
@@ -165,12 +169,11 @@ d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
 		.height(300)
 		.dimension(dateDim)
 		.group(dateGroup)
-		.x(d3.time.scale().domain(d3.extent(rawson, function (d) {return new Date(d.timestamp)})))
-		.round(d3.time.days.round)
-		.xUnits(d3.time.days)
+		.x(d3.time.scale().domain(d3.extent(rawson, function (d) {return new Date(d.t)})))
+	//	.round(d3.time.days.round)
+		.xUnits(d3.time.weeks)
 		.elasticY(true)
 		.y(d3.scale.linear())
-		.brushOn(false)
 		.renderVerticalGridLines(true)
 		.compose([
 			dc.lineChart(dateBar)
@@ -179,12 +182,20 @@ d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
 				.stack(dateGroup, function (d) { return d.value.telefonbanken;})
 		])
 		.xAxis()
-			.tickFormat(function (x) { return x.getDate() + "/" + (x.getMonth()+1);})
-			.ticks(d3.time.days); /* cla - every day - change later */
+//			.tickFormat(function (x) { return x.getDate() + "/" + (x.getMonth()+1);})
+			.tickFormat(function (d) { return "v." + getWeekNumber(d)[1];})
+
+			.ticks(d3.time.weeks); /* cla - every day - change later */
 		;
 
+
+
+
+
+
+
 	    var hour = cf.dimension(function(d) {
-	        var n = new Date(d.timestamp);        
+	        var n = new Date(d.t);        
 	        return n.getHours(); 
 	    });
 	    var hours = hour.group();
@@ -195,6 +206,7 @@ d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
 	    	.height(180)
 			.dimension(hour)
 	    	.group(hours)
+	    	.elasticY(true)
 		    .x(d3.scale.linear()
 		        .domain([0, 23])
 		        .rangeRound([0, 10 * 23])
@@ -203,6 +215,7 @@ d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
 
 
 		dc.renderAll();
+		
 		
 		// chart stripe background
 		var gridroot = d3.select("#dateBar").select(".grid-line.vertical").selectAll("line");
@@ -222,10 +235,23 @@ d3.json("http://localhost:8888/vislab/data.json", function (rawson) {
 			.attr("class", "stripe"+gridroot[0].length%2);
 		}
 		// done styling chart background
-//d3.select("#dateBar").appendChild(d3.select("#dateBar").select(".axis"));
-
+		
 });
 
+function getWeekNumber(d) {
+    // Copy date so don't modify original
+    d = new Date(d);
+    d.setHours(0,0,0);
+    // Set to nearest Thursday: current date + 4 - current day number
+    // Make Sunday's day number 7
+    d.setDate(d.getDate() + 4 - (d.getDay()||7));
+    // Get first day of year
+    var yearStart = new Date(d.getFullYear(),0,1);
+    // Calculate full weeks to nearest Thursday
+    var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7)
+    // Return array of year and week number
+    return [d.getFullYear(), weekNo];
+}
 
 </script>
 

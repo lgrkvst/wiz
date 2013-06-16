@@ -1,10 +1,19 @@
 fs = require('fs')
-var outfile = "total.json";
+crossfilter = require('crossfilter');
+//d3 = require('d3');
+
+var dir = "json/";
+var outfile = "merge_of_logs.json";
 var files = [];
 var i;
-fs.writeFile(outfile, "");
+var cf = crossfilter();
+var formsarray = {};
 
-fs.readdir(process.cwd(), function (err, files) {
+function formsarray_aggregate(fid) {
+	formsarray[fid] = true;
+}
+
+fs.readdir(dir, function (err, files) {
   if (err) {
     console.log(err);
     return;
@@ -12,19 +21,24 @@ fs.readdir(process.cwd(), function (err, files) {
 	for (i=0; i<files.length;i++) {
 		var x = files[i].split(".");
 		var ext = x[x.length-1];
-		if (ext == "json") {
-			fs.readFile(files[i], 'utf8', function (err,data) {
-		  	if (err) {
-		  	  return console.log(err);
-		  	}
-			 	fs.appendFile(outfile, data.substring(1,data.length-1) + ",", function (f) {
-			 		console.log("appended " +files[i] + " to " + outfile);
-//	 				if (i<files.length-1) fs.appendFile(outfile, ",");
-			 	});
-			});
+		if (ext == "json" && files[i] != outfile) {
+			var data = fs.readFileSync(dir + files[i], 'utf8');
+			if (data.length) {
+				var json = JSON.parse(data);
+				cf.add(json);
+			}
 		}
 	}
-});
+	var dim = cf.dimension(function (f) {
+//		formsarray_aggregate(f.f);
+		return f.t;
+	});
 
+	//console.log(dim.bottom(Infinity));
+
+//	var group = dim.group(function (f) {return d3.time.day(f);});
+//	console.log(dim.bottom(Infinity));
+	fs.writeFileSync(dir + outfile, JSON.stringify(dim.bottom(Infinity)));
+});
 //fs.writeFile("total.json", "]");
 
